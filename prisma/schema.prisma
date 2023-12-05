@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+
+model Chamada{
+  id  Int   @id @default(autoincrement())
+  ticketId  Int
+  ticker Ticket @relation(fields: [ticketId], references: [id]) 
+  guiche Int
+  senha Int 
+  dataHora DateTime @default(now())
+  
+}
+
+
+model Ticket {
+  id  Int  @id @default(autoincrement())
+  prioritario Boolean
+  dataHora DateTime @default(now())
+  atendido Boolean @default(false)
+  updated_at DateTime @default(now())
+  senhaDia Int
+  chamada Chamada[]
+}
+
+
+
