@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { BadRequestException, Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTicketDto } from './dto/create-ticket.dto';
-import { UpdateTicketDto } from './dto/update-ticket.dto';
 import { PrismaService } from 'src/prisma/prisma.service';
 
 @Injectable()
@@ -76,6 +75,8 @@ export class TicketService {
     }
   }
 
-  async findAll
+  async findAll(){
+    
+  }
 
 }
